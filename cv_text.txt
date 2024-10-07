@@ -1,0 +1,52 @@
+Jessie Lee Delgadillo Newman
+Data Consultant
+Data Consultant with over 4 years of experience in Data Science, Data Engineering, and BI Development. Skilled in statistical modelling, data visualisation, and cloud infrastructure to optimise processes and reduce costs. Proficient in Python, SQL, and major cloud platforms. Based in Sydney, open to relocating for the right opportunity.
+
+EMPLOYMENT
+Data Consultant
+Freelance
+08/2023 - Present, Achievements
+
+Developed interactive dashboards using Tableau, enabling stakeholders to visualise key performance metrics and make informed, data-driven decisions.
+Designed and implemented scalable ETL pipelines with Apache Airflow and AWS Glue, ensuring real-time data availability for business intelligence reporting.
+Successfully launched three innovative features that integrated Large Language Models (LLMs) into the school's digital platforms. These enhancements streamlined administrative management tasks, significantly reducing human hours required and improving overall efficiency.
+
+Data Scientist
+Reby
+06/2021 - 08/2023, Achievements
+Trained and deployed containerised statistical models to Kubernetes to be called by app via API requests, such as ride battery prediction, which increased sales of low battery rides by > 30%.
+Built embedded analytics on Flask pages for city council decision-making. Set up MLOps cloud infrastructure to accelerate ML experimentation.
+Reduced cloud infrastructure costs by over $2,000/month through cloud cost optimization initiatives.
+Implemented query logs reporting that drastically reduced cost of ETLs.
+Led cross-functional projects including cloud cost optimisation, vehicle battery modeling, scraping ETLs, and MLOps architecture development.
+Data Analyst
+I-surance
+10/2019 - 06/2021, Achievements
+Led project that included configuration and development of AWS serverless rule based system to automate > 25% of manual claim resolutions based on historical data & current C.C. strategies.
+Received company award for automating BI reporting, resulting in $7,000+ savings.
+Collaborated with Finance team to enhance Bordereau reporting, detecting mistakes and adding data points required by reinsurer to continue the program. Received employer award and bonus for this contribution.
+Developed Python ETLs in collaboration with Supply Chain and CC, automating manual data tasks and reducing work by over 4h/week.
+
+Education
+Data Analysis Intensive Bootcamp
+Ironhack - Full Scholarship (top 0.05 percent of applicants in Spain)
+02/2019 - 04/2019
+
+Skills
+Python, SQL, Statistics, Pandas, Numpy, Matplotlib, Seaborn, Scikit-learn, XGBoost, AWS, Google Cloud Platform (GCP), Power BI, Sisense, Excel, Git, Docker, Kubernetes, Flask, FastAPI, Agile, Jira
+
+Personal Projects
+Data Engineering for Non-Profit Org. Myanmar refugee assistance.
+Data Mentoring HackUPC University Hackathon
+How to organically distribute scooter availability at eCooltra
+Design and implementation of a mobile game using Finite-State-Machines and Unity3D software. Showcased at the MTRCV forum high school awards
+
+Certificates
+Machine Learning Engineer Nanodegree (Full AWS Scholarship - Awarded to top 200 self-driving RL models)
+Google Cloud Certified - Associate Cloud Engineer
+
+Languages
+English, Spanish, Catalan
+
+Interests
+Piano, Triathlon, Sailing, BJJ

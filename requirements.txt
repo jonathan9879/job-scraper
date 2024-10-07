@@ -1,0 +1,6 @@
+python-dateutil
+selenium
+webdriver-manager
+groq
+pushbullet.py
+python-dotenv
