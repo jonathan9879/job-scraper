@@ -297,6 +297,8 @@ def is_date_within_six_months(date_str):
 def get_job_listings(driver, resume_from_checkpoint=False, cv_content="", city_url=""):
     jobs = []
     page_number = 1
+    consecutive_empty_pages = 0
+    max_empty_pages = 3  # Stop after 3 consecutive empty pages
 
     if resume_from_checkpoint:
         checkpoint = load_checkpoint()
@@ -310,7 +312,7 @@ def get_job_listings(driver, resume_from_checkpoint=False, cv_content="", city_u
         print(f"Scraping page {page_number} for {city_url}")
         for attempt in range(MAX_RETRIES):
             try:
-                expected_url = f"{city_url}?page={page_number}"
+                expected_url = f"{city_url}&page={page_number}"
                 if driver.current_url != expected_url:
                     print(f"Navigating to page: {expected_url}")
                     driver.get(expected_url)
@@ -325,8 +327,14 @@ def get_job_listings(driver, resume_from_checkpoint=False, cv_content="", city_u
                 print(f"Found {len(job_ids)} job IDs on this page")
 
                 if not job_ids:
+                    consecutive_empty_pages += 1
+                    if consecutive_empty_pages >= max_empty_pages:
+                        print(f"No job IDs found on {max_empty_pages} consecutive pages. Stopping scraping.")
+                        return jobs
                     print("No job IDs found on this page. Moving to next page.")
                     break
+                else:
+                    consecutive_empty_pages = 0
 
                 page_jobs = []
                 for job_id in job_ids:
@@ -336,19 +344,16 @@ def get_job_listings(driver, resume_from_checkpoint=False, cv_content="", city_u
                     driver.get(job_url)
                     WebDriverWait(driver, PAGE_LOAD_TIMEOUT).until(EC.presence_of_element_located((By.CSS_SELECTOR, '[data-automation="jobAdDetails"]')))       
                     
-                    
-                    # Check if it's a Casual/Vacation position
-                    is_casual = "Casual/Vacation" in driver.page_source
-                    
-                    # Apply Quick Apply filter only for non-Casual positions
-                    if not is_casual and not is_quick_apply_job(driver):
-                        print(f"Skipping job {job_id} as it's not a Quick Apply job")
-                        continue
-                    
-                    # Check for "You applied on" anywhere on the page
-                    if "You applied on" in driver.page_source:
+                    # Wait for the "You applied on" element to appear (if it exists)
+                    try:
+                        applied_element = WebDriverWait(driver, 5).until(
+                            EC.presence_of_element_located((By.XPATH, "//span[contains(@class, '_1j97a3y4y') and contains(text(), 'You applied on')]"))
+                        )
                         print(f"Skipping job {job_id} as it was previously applied to")
                         continue
+                    except TimeoutException:
+                        # Element not found, proceed with job processing
+                        pass
                     
                     job_description = driver.find_element(By.CSS_SELECTOR, '[data-automation="jobAdDetails"]').text
                     job_title = driver.find_element(By.CSS_SELECTOR, '[data-automation="job-detail-title"]').text
@@ -384,6 +389,14 @@ def get_job_listings(driver, resume_from_checkpoint=False, cv_content="", city_u
                     
                     if score < 8:  # Skip if relevancy score is below 8
                         print(f"Skipping job {job_title} due to low relevancy score: {score}")
+                        continue
+
+                    # Check if it's a Casual/Vacation position
+                    is_casual = "Casual/Vacation" in driver.page_source
+                    
+                    # Apply Quick Apply filter only for non-Casual positions and non-perfect matches
+                    if not is_casual and score < 10 and not is_quick_apply_job(driver):
+                        print(f"Skipping job {job_id} as it's not a Quick Apply job and score is not 10")
                         continue
 
                     # Push Notification
