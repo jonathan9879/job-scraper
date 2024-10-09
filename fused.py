@@ -373,7 +373,8 @@ def get_job_listings(driver, resume_from_checkpoint=False, cv_content="", city_u
                     # Check for phrases to skip in both title and description
                     skip_phrases = [
                         "9 month ", "9-month", "9month", "9 Month",
-                        "12 month", "12-month", "12month", "12 Month"
+                        "12 month", "12-month", "12month", "12 Month",
+                        "24 month", "24-month", "24month", "24 Month"
                     ]
                     if any(phrase in job_description or phrase in job_title for phrase in skip_phrases):
                         print(f"Skipping job due to matching phrase: {job_title}")
