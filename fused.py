@@ -347,7 +347,7 @@ def get_job_listings(driver, resume_from_checkpoint=False, cv_content="", city_u
                     # Wait for the "You applied on" element to appear (if it exists)
                     try:
                         applied_element = WebDriverWait(driver, 5).until(
-                            EC.presence_of_element_located((By.XPATH, "//span[contains(@class, '_1j97a3y4y') and contains(text(), 'You applied on')]"))
+                            EC.presence_of_element_located((By.XPATH, "//div[@id='applied-date-message']//span[contains(text(), 'You applied on')]"))
                         )
                         print(f"Skipping job {job_id} as it was previously applied to")
                         continue
