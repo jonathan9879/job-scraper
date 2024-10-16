@@ -344,15 +344,24 @@ def get_job_listings(driver, resume_from_checkpoint=False, cv_content="", city_u
                     driver.get(job_url)
                     WebDriverWait(driver, PAGE_LOAD_TIMEOUT).until(EC.presence_of_element_located((By.CSS_SELECTOR, '[data-automation="jobAdDetails"]')))       
                     
-                    # Wait for the "You applied on" element to appear (if it exists)
+                    # Skip if already applied
                     try:
+                        # Wait for either the green tick SVG or the "You applied on" text
                         applied_element = WebDriverWait(driver, 5).until(
-                            EC.presence_of_element_located((By.XPATH, "//div[@id='applied-date-message']//span[contains(text(), 'You applied on')]"))
+                            EC.presence_of_element_located((By.XPATH, """
+                                //div[@id='applied-date-message']//span[contains(@class, '_1j97a3y4y') and contains(@class, '_1j97a3yr') and contains(text(), 'You applied on')]
+                                |
+                                //svg[
+                                    contains(@class, 'w75d4w1y') and
+                                    ./path[1][contains(@d, 'M12 1C5.9 1 1 5.9 1 12s4.9 11 11 11 11-4.9 11-11S18.1 1 12 1zm0 20c-5 0-9-4-9-9s4-9 9-9 9 4 9 9-4 9-9 9z')] and
+                                    ./path[2][contains(@d, 'M15.3 9.3 11 13.6l-1.3-1.3c-.4-.4-1-.4-1.4 0s-.4 1 0 1.4l2 2c.2.2.5.3.7.3s.5-.1.7-.3l5-5c.4-.4.4-1 0-1.4s-1-.4-1.4 0z')]
+                                ]
+                            """))
                         )
                         print(f"Skipping job {job_id} as it was previously applied to")
-                        continue
+                        continue  # Skip to the next job in the loop
                     except TimeoutException:
-                        # Element not found, proceed with job processing
+                        # Neither element found, proceed with job processing
                         pass
                     
                     job_description = driver.find_element(By.CSS_SELECTOR, '[data-automation="jobAdDetails"]').text
