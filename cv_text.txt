@@ -26,6 +26,7 @@ Led project that included configuration and development of AWS serverless rule b
 Received company award for automating BI reporting, resulting in $7,000+ savings.
 Collaborated with Finance team to enhance Bordereau reporting, detecting mistakes and adding data points required by reinsurer to continue the program. Received employer award and bonus for this contribution.
 Developed Python ETLs in collaboration with Supply Chain and CC, automating manual data tasks and reducing work by over 4h/week.
+Hired and managed a junior Data Analyst.
 
 Education
 Data Analysis Intensive Bootcamp
