@@ -16,6 +16,7 @@ from groq import Groq
 from pushbullet import Pushbullet
 from collections import deque
 from dotenv import load_dotenv
+import google.generativeai as genai
 
 # Constants
 # Update file paths
@@ -48,45 +49,16 @@ CITY_URLS = [
 load_dotenv()
 
 # LLM API setup
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
-pb = Pushbullet(os.getenv("PUSHBULLET_API_KEY"))
+pb = Pushbullet(os.getenv("PUSHBULLET_API_KEY")) if os.getenv("PUSHBULLET_API_KEY") else None
 
-# Rate limiter class to manage API requests
-class RateLimiter:
-    def __init__(self):
-        self.hourly_request_times = deque()
-        self.hourly_token_usage = deque()
-        self.last_rate_limit_time = 0
-
-    def add_request(self, tokens):
-        current_time = time.time()
-        self.hourly_request_times.append(current_time)
-        self.hourly_token_usage.append(tokens)
-        self.clean_old_entries()
-
-    def clean_old_entries(self):
-        current_time = time.time()
-        while self.hourly_request_times and current_time - self.hourly_request_times[0] > 3600:
-            self.hourly_request_times.popleft()
-            self.hourly_token_usage.popleft()
-
-    def handle_rate_limit(self):
-        current_time = time.time()
-        self.last_rate_limit_time = current_time
-        self.clean_old_entries()
-        
-        tokens_last_hour = sum(self.hourly_token_usage)
-        requests_last_hour = len(self.hourly_request_times)
-        
-        if tokens_last_hour >= TOKENS_PER_HOUR or requests_last_hour >= REQUESTS_PER_HOUR:
-            wait_time = 3600 - (current_time - self.hourly_request_times[0])
-            print(f"Rate limit reached. Waiting for {wait_time:.2f} seconds.")
-            time.sleep(wait_time)
-        else:
-            print("Rate limit reached unexpectedly. Waiting for 60 seconds.")
-            time.sleep(60)
-
-rate_limiter = RateLimiter()
+# Initialize Gemini client
+if os.getenv("GEMINI_API_KEY"):
+    genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+    gemini_model = genai.GenerativeModel('gemini-2.5-pro-exp-03-25') # Use the specified experimental model
+    print("✅ Gemini client initialized")
+else:
+    gemini_model = None
+    print("⚠️ Gemini API key not found, analysis will be skipped.")
 
 def sign_in(driver):
     print("Signing in...")
@@ -218,56 +190,116 @@ def is_quick_apply_job(driver):
         return False
 
 def analyze_job_relevance(job, cv_content):
-    while True:
-        try:
-            prompt = f"""
-            CV Content:
-            {cv_content}
+    print("\n🧠 Analyzing job relevance using Gemini...")
+    if not gemini_model:
+        print("❌ Gemini client not initialized. Skipping analysis.")
+        # Return a default structure that parse_analysis can handle
+        return "Relevance Score: 0\nInterest Score: 0\nKey Match Reason: Skipped analysis - Gemini API key missing.\nCover Letter: Skipped analysis - Gemini API key missing."
 
-            Job Title: {job['title']}
-            Job Description:
-            {job['description']}
+    try:
+        # Refined prompt with Interest Score and Key Match Reason
+        prompt = f"""
+        **Candidate Profile & Preferences:**
+        {cv_content}
+        Key Preferences: Seeking Data Scientist/Analyst roles, ideally contract/temp in Sydney/Brisbane/Melbourne. Prefers remote or hybrid (Barcelona-based acceptable). Strong preference for roles involving Python, SQL, Cloud (AWS/GCP/Azure), MLOps, ETL, and ML frameworks. Values innovation, clear project goals, and opportunities for skill growth. Minimum 6-month contracts preferred unless exceptionally interesting. Avoid roles strictly requiring Australian Citizenship unless explicitly stated otherwise in the description.
 
-            Tasks:
-            1. Rate the relevancy of this job to the candidate's skills and experience on a scale of 0 to 10, where 0 is not relevant at all and 10 is extremely relevant.
-            2. Write a very brief and targeted two-sentence personalized cover letter for this job based on the CV and job description.
+        **Job Details:**
+        Title: {job['title']}
+        Link: {job.get('link', 'N/A')}  # Include link if available
+        Description:
+        {job['description']}
 
-            Provide your response in the following format:
-            Score: [Your score as a single number between 0 and 10]
-            Cover Letter: [Your two-sentence cover letter]
-            """
+        **Analysis Task:**
+        1.  **Relevance Score (0-10):** Based *only* on the alignment between the CV/Preferences and the Job Description, how relevant is this role? (10 = perfect match, 0 = irrelevant). Consider skills, experience level, contract length/type, location/remote options, and preferred technologies.
+        2.  **Interest Score (0-10):** Beyond direct skill match, how *interesting* does this role seem based on the description? Consider factors like innovation, project scope, learning opportunities, company description (if available), and overall appeal.
+        3.  **Key Match Reason:** Briefly explain the single most compelling reason this job *is* a good match (or why it *isn't* if the score is low). Focus on the strongest alignment or mismatch.
+        4.  **Cover Letter Snippet:** Write a concise, targeted two-sentence snippet highlighting the candidate's most relevant qualification(s) for *this specific* job.
 
-            estimated_tokens = estimate_tokens(prompt)
-            chat_completion = client.chat.completions.create(
-                messages=[
-                    {
-                        "role": "user",
-                        "content": prompt,
-                    }
-                ],
-                model=MODEL,
+        **Output Format (Strict):**
+        Relevance Score: [Number 0-10]
+        Interest Score: [Number 0-10]
+        Key Match Reason: [Your concise explanation]
+        Cover Letter: [Your two-sentence snippet]
+        """
+
+        print("⚡ Sending request to Gemini API...")
+        response = gemini_model.generate_content(
+            prompt,
+            generation_config=genai.types.GenerationConfig(
+                temperature=0.3
             )
-            rate_limiter.add_request(estimated_tokens)
-            print("API call successful. Parsing response...")
-            return chat_completion.choices[0].message.content
-        except Exception as e:
-            if "rate limit" in str(e).lower():
-                rate_limiter.handle_rate_limit()
-            else:
-                raise
+        )
+
+        # Ensure response.text is accessed correctly
+        if response.parts:
+            response_text = "".join(part.text for part in response.parts)
+            print("✅ Gemini API call successful. Parsing response...")
+            return response_text
+        else:
+            print("⚠️ Gemini API response was empty or blocked.")
+            print(f"Prompt Feedback: {response.prompt_feedback}")
+            # Return a default structure that parse_analysis can handle
+            return "Relevance Score: 0\nInterest Score: 0\nKey Match Reason: Error: No response from API or content blocked.\nCover Letter: Error: No response from API or content blocked."
+
+    except Exception as e:
+        print(f"❌ Error during Gemini API call: {e}")
+        # Return a default structure that parse_analysis can handle
+        return f"Relevance Score: 0\nInterest Score: 0\nKey Match Reason: Error during analysis: {e}\nCover Letter: Error during analysis: {e}"
 
 def parse_analysis(response):
-    lines = response.split('\n')
-    result = {}
+    lines = response.strip().split('\n')
+    result = {
+        'relevance_score': 0,
+        'interest_score': 0,
+        'key_match_reason': 'Parsing Error',
+        'cover_letter': 'Parsing Error'
+    }
     current_key = None
+    buffer = []
+
     for line in lines:
-        if line.startswith("Score:"):
-            result['score'] = int(line.split(":")[1].strip())
+        line = line.strip()
+        if not line:
+            continue
+
+        if line.startswith("Relevance Score:"):
+            if current_key:
+                result[current_key] = " ".join(buffer).strip()
+            current_key = 'relevance_score'
+            buffer = [line.split(":", 1)[1].strip()]
+        elif line.startswith("Interest Score:"):
+            if current_key:
+                result[current_key] = " ".join(buffer).strip()
+            current_key = 'interest_score'
+            buffer = [line.split(":", 1)[1].strip()]
+        elif line.startswith("Key Match Reason:"):
+            if current_key:
+                result[current_key] = " ".join(buffer).strip()
+            current_key = 'key_match_reason'
+            buffer = [line.split(":", 1)[1].strip()]
         elif line.startswith("Cover Letter:"):
+            if current_key:
+                result[current_key] = " ".join(buffer).strip()
             current_key = 'cover_letter'
-            result[current_key] = "\n" + line.split(":", 1)[1].strip()  # Add a new line before the cover letter
+            buffer = [line.split(":", 1)[1].strip()]
         elif current_key:
-            result[current_key] += " " + line.strip()
+            buffer.append(line)
+
+    # Save the last key
+    if current_key:
+        result[current_key] = " ".join(buffer).strip()
+
+    # Attempt to convert scores to int, default to 0 on failure
+    try:
+        result['relevance_score'] = int(result['relevance_score'])
+    except (ValueError, TypeError):
+        result['relevance_score'] = 0
+    try:
+        result['interest_score'] = int(result['interest_score'])
+    except (ValueError, TypeError):
+        result['interest_score'] = 0
+
+    print(f"Parsed Analysis: Relevance={result['relevance_score']}, Interest={result['interest_score']}") # Debug print
     return result
 
 def is_date_within_six_months(date_str):
@@ -391,36 +423,51 @@ def get_job_listings(driver, resume_from_checkpoint=False, cv_content="", city_u
                     
                     
                     # Analyze job relevance and get cover letter
-                    analysis_result = analyze_job_relevance({'title': job_title, 'description': job_description}, cv_content)
+                    analysis_result = analyze_job_relevance({'title': job_title, 'description': job_description, 'link': job_url}, cv_content)
                     parsed_result = parse_analysis(analysis_result)
                     
-                    score = parsed_result['score']
+                    relevance_score = parsed_result['relevance_score']
+                    interest_score = parsed_result['interest_score']
+                    key_match_reason = parsed_result['key_match_reason']
                     cover_letter = parsed_result['cover_letter']
                     
-                    if score < 8:  # Skip if relevancy score is below 8
-                        print(f"Skipping job {job_title} due to low relevancy score: {score}")
+                    # Adjusted filtering logic: Require high relevance OR high interest
+                    # Example: Relevance >= 7 OR (Relevance >= 5 AND Interest >= 8)
+                    if not (relevance_score >= 7 or (relevance_score >= 5 and interest_score >= 8)):
+                        print(f"Skipping job {job_title} (Relevance: {relevance_score}, Interest: {interest_score}) - doesn't meet threshold.")
                         continue
 
                     # Check if it's a Casual/Vacation position
                     is_casual = "Casual/Vacation" in driver.page_source
                     
                     # Apply Quick Apply filter only for non-Casual positions and non-perfect matches
-                    if not is_casual and score < 10 and not is_quick_apply_job(driver):
-                        print(f"Skipping job {job_id} as it's not a Quick Apply job and score is not 10")
+                    if not is_casual and relevance_score < 9 and interest_score < 9 and not is_quick_apply_job(driver):
+                        print(f"Skipping job {job_id} as it's not a Quick Apply job and scores aren't high enough")
                         continue
 
                     # Push Notification
-                    pb.push_note(f"New Relevant Job: {job_title} - Score {score}", f"Job Link: {job_url}\n\nCover Letter:\n{cover_letter}")
+                    notification_title = f"⭐ Job Match: {job_title} (R:{relevance_score}/I:{interest_score})"
+                    notification_body = (
+                        f"Reason: {key_match_reason}\n"
+                        f"Link: {job_url}\n\n"
+                        f"Cover Snippet:\n{cover_letter}"
+                    )
+                    if pb:
+                        pb.push_note(notification_title, notification_body)
+                    else:
+                         print("Pushbullet not configured, skipping notification.")
                     
                     page_jobs.append({
                         'link': job_url,
                         'description': job_description,
                         'title': job_title,
                         'job_id': job_id,
-                        'score': score,
+                        'relevance_score': relevance_score,
+                        'interest_score': interest_score,
+                        'key_match_reason': key_match_reason,
                         'cover_letter': cover_letter
                     })
-                    print(f"Successfully processed job: {job_title} with relevancy score: {score}")
+                    print(f"✅ Successfully processed job: {job_title} (R:{relevance_score}, I:{interest_score})")
                 
                 jobs.extend(page_jobs)
                 save_checkpoint(jobs, page_number, city_url)

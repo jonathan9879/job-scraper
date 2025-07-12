@@ -1,6 +1,15 @@
-python-dateutil
+requests
 selenium
 webdriver-manager
 groq
 pushbullet.py
 python-dotenv
+selenium-stealth
+undetected-chromedriver
+google-generativeai
+python-dateutil
+py-trello
+google-api-python-client
+opencv-python
+numpy
+pillow

@@ -1,0 +1,52 @@
+[
+  {
+    "job_id": "4130104376",
+    "title": "Big Data Engineer (Remote work)",
+    "company": "SERIT Consulting",
+    "location": "Spain",
+    "description": "About the job\nSerit is looking for a Big Data Engineer with: + 5 years in Big Data development, expertise in Hadoop, Spark, Hive and proficiency in Java, Python, or Scala and experience with cloud platforms (AWS, Azure, GCP)\n\nRole Responsibilities:\n🔹 Design and optimize large-scale data pipelines for financial data processing\n🔹 Build ETL workflows and implement Big Data solutions (Hadoop, Spark, Hive)\n🔹 Develop scalable code in Java, Python, or Scala\n🔹 Collaborate with data scientists to drive insights\n🔹 Ensure data quality, security, and performance\n🔹 Mentor and lead a team of data professionals\n\n100% remote work (only from Spain)\nHigh level of English (mandatory)",
+    "easy_apply": true,
+    "apply_link": null,
+    "source_url": "https://www.linkedin.com/jobs/collections/top-applicant/?currentJobId=4130104376",
+    "timestamp": "2025-02-01T23:33:04.595028",
+    "analysis": {
+      "scores": {
+        "skills_match": 6.0,
+        "role_alignment": 5.0,
+        "remote_work": 10.0,
+        "innovation": 4.0,
+        "compensation": 5.0,
+        "final_score": 6.0
+      },
+      "should_apply": true,
+      "recommendation": "",
+      "benefits": [],
+      "total_score": 6.0
+    }
+  },
+  {
+    "job_id": "4119556427",
+    "title": "Científico de datos",
+    "company": "Mutua Madrileña",
+    "location": "Madrid, Community of Madrid, Spain",
+    "description": "About the job\n¿Te apetece unirte al equipo de Mutua Madrileña y formar parte de un proyecto único y en continuo crecimiento?\n\nEn Mutua Madrileña estamos buscando incorporar un Data Scientist para el área de Analítica Avanzada e IA donde se desarrollan e implementan modelos analíticos para las diferentes áreas de la compañía utilizando las últimas herramientas de modelización y usando los modelos de última generación como los LLMs.\n\nSe integrará en un equipo joven, dinámico y con talento donde la comunicación, la colaboración y el traspaso de conocimiento es fluida.\nEste puesto, en particular, desarrollará sistemas de predicción, motores de recomendación y asistentes de GenAI para distintos equipos de la compañía.\n\nRequisitos:\n• Formación: grado/Licenciatura en Matemáticas, Físicas, Ingenieria, Estadística, actuarial... con mucho peso en modelos matemáticos\n• 1-2 años experiencia en la implementación de modelos analíticos y/o buen expediente académico.\n• Amplios conocimientos de estadística y matemáticas, Python y/o Tensorflow.\n• Conocimientos de modelos de Deep learning y en particular de LLMs (GenAI).\n• Es imprescindible que le guste programar, el tratamiento de la información y la realización y puesta en producción de modelos analíticos, así como su seguimiento y generación de nuevos evolutivos.\n• Se valorará conocimientos en diferentes plataformas para la generación de asistentes (DialogFlow (Google), Salesforce, Microsoft, AIP, ...) y de prompting.\n\n¿Te sientes Preparado? ¿Eres un Valiente? ¡Únete a nuestro reto profesional!\n\nGrupo Mutua es para #PreparadosyValientes. Grupo Mutua es para ti.\nAceptando suscribirte a esta oferta consientes el tratamiento de tus datos personales conforme a los términos y condiciones establecidos en: https://www.grupomutua.es/proteccion-de-datos/\n\nEste es un puesto para Preparados y Valientes:\nPreparados para crear impacto en Grupo Mutua: la potencia de una compañía diversificada y líder. Y Valientes para afrontar nuevos retos con una visión transformadora y motivada por la innovación.\n¿Te sientes identificado? Grupo Mutua es tu lugar.",
+    "easy_apply": true,
+    "apply_link": null,
+    "source_url": "https://www.linkedin.com/jobs/collections/top-applicant/?currentJobId=4119556427",
+    "timestamp": "2025-02-01T23:33:50.452167",
+    "analysis": {
+      "scores": {
+        "skills_match": 7.0,
+        "role_alignment": 8.0,
+        "remote_work": 2.0,
+        "innovation": 9.0,
+        "compensation": 8.0,
+        "final_score": 7.0
+      },
+      "should_apply": true,
+      "recommendation": "",
+      "benefits": [],
+      "total_score": 7.0
+    }
+  }
+]

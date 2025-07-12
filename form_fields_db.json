@@ -1,0 +1,251 @@
+{
+  "text_inputs": {},
+  "selects": {
+    "": {
+      "value": "",
+      "variations": [
+        ""
+      ],
+      "language": "auto",
+      "last_seen": "2025-07-12 03:05:20.214297"
+    },
+    "all roles": {
+      "value": "",
+      "variations": [
+        "all roles"
+      ],
+      "language": "auto",
+      "last_seen": "2025-07-12 03:05:20.214314"
+    },
+    "fbclc_itucode fbclc_itucode código de país/región:*": {
+      "value": "",
+      "variations": [
+        "fbclc_itucode fbclc_itucode código de país/región:*"
+      ],
+      "language": "auto",
+      "last_seen": "2025-07-12 03:01:24.382275"
+    },
+    "fbclc_country fbclc_country país:*": {
+      "value": "",
+      "variations": [
+        "fbclc_country fbclc_country país:*"
+      ],
+      "language": "auto",
+      "last_seen": "2025-07-12 03:01:24.382277"
+    }
+  },
+  "textareas": {},
+  "checkboxes": {
+    "new_legal_notice new_legal_notice glovo as data controller may process the data you share with us through your application for the purposes of the controller’s recruitment related activities. for more information on how we process your data and how to exercise your rights, please refer to our data privacy statement": {
+      "value": "",
+      "variations": [
+        "new_legal_notice new_legal_notice glovo as data controller may process the data you share with us through your application for the purposes of the controller’s recruitment related activities. for more information on how we process your data and how to exercise your rights, please refer to our data privacy statement"
+      ],
+      "language": "auto",
+      "last_seen": "2025-07-12 02:46:34.880976"
+    },
+    "fbclc_emailenabled fbclc_emailenabled notificaciones doy mi consentimiento para recibir alertas de empleo": {
+      "value": "",
+      "variations": [
+        "fbclc_emailenabled fbclc_emailenabled notificaciones doy mi consentimiento para recibir alertas de empleo"
+      ],
+      "language": "auto",
+      "last_seen": "2025-07-12 03:01:24.382260"
+    },
+    "fbclc_campaignemailenabled fbclc_campaignemailenabled doy mi consentimiento para que el grupo capgemini me comparta seminarios, noticias y eventos de talento y tecnológicos. doy mi consentimiento para que el grupo capgemini me comparta seminarios, noticias y eventos de talento y tecnológicos.": {
+      "value": "",
+      "variations": [
+        "fbclc_campaignemailenabled fbclc_campaignemailenabled doy mi consentimiento para que el grupo capgemini me comparta seminarios, noticias y eventos de talento y tecnológicos. doy mi consentimiento para que el grupo capgemini me comparta seminarios, noticias y eventos de talento y tecnológicos."
+      ],
+      "language": "auto",
+      "last_seen": "2025-07-12 03:01:24.382273"
+    }
+  },
+  "radio_buttons": {
+    "question_29495816002": {
+      "value": "",
+      "variations": [
+        "question_29495816002"
+      ],
+      "language": "auto",
+      "last_seen": "2025-07-11 21:21:38.873855"
+    },
+    "question_29495819002": {
+      "value": "",
+      "variations": [
+        "question_29495819002"
+      ],
+      "language": "auto",
+      "last_seen": "2025-07-11 21:21:38.873865"
+    },
+    "question_31264560002": {
+      "value": "",
+      "variations": [
+        "question_31264560002"
+      ],
+      "language": "auto",
+      "last_seen": "2025-07-11 21:21:38.873867"
+    },
+    "question_29297733002": {
+      "value": "",
+      "variations": [
+        "question_29297733002"
+      ],
+      "language": "auto",
+      "last_seen": "2025-07-11 19:15:33.643679"
+    },
+    "question_29297736002": {
+      "value": "",
+      "variations": [
+        "question_29297736002"
+      ],
+      "language": "auto",
+      "last_seen": "2025-07-11 19:15:33.643707"
+    },
+    "question_29484328002": {
+      "value": "",
+      "variations": [
+        "question_29484328002"
+      ],
+      "language": "auto",
+      "last_seen": "2025-07-11 19:15:33.643709"
+    },
+    "question_29484329002": {
+      "value": "",
+      "variations": [
+        "question_29484329002"
+      ],
+      "language": "auto",
+      "last_seen": "2025-07-11 19:15:33.643711"
+    },
+    "question_29484330002": {
+      "value": "",
+      "variations": [
+        "question_29484330002"
+      ],
+      "language": "auto",
+      "last_seen": "2025-07-11 19:15:33.643712"
+    },
+    "question_29484331002": {
+      "value": "",
+      "variations": [
+        "question_29484331002"
+      ],
+      "language": "auto",
+      "last_seen": "2025-07-11 19:15:33.643714"
+    },
+    "question_31264550002": {
+      "value": "",
+      "variations": [
+        "question_31264550002"
+      ],
+      "language": "auto",
+      "last_seen": "2025-07-11 19:15:33.643716"
+    },
+    "question_30515459002": {
+      "value": "",
+      "variations": [
+        "question_30515459002"
+      ],
+      "language": "auto",
+      "last_seen": "2025-07-11 21:58:52.085967"
+    },
+    "question_30515462002": {
+      "value": "",
+      "variations": [
+        "question_30515462002"
+      ],
+      "language": "auto",
+      "last_seen": "2025-07-11 21:58:52.085993"
+    },
+    "question_30515463002": {
+      "value": "",
+      "variations": [
+        "question_30515463002"
+      ],
+      "language": "auto",
+      "last_seen": "2025-07-11 21:58:52.085995"
+    },
+    "question_30515464002": {
+      "value": "",
+      "variations": [
+        "question_30515464002"
+      ],
+      "language": "auto",
+      "last_seen": "2025-07-11 21:58:52.085996"
+    },
+    "question_30515465002": {
+      "value": "",
+      "variations": [
+        "question_30515465002"
+      ],
+      "language": "auto",
+      "last_seen": "2025-07-11 21:58:52.085998"
+    },
+    "question_30515466002": {
+      "value": "",
+      "variations": [
+        "question_30515466002"
+      ],
+      "language": "auto",
+      "last_seen": "2025-07-11 21:58:52.085999"
+    },
+    "question_31264548002": {
+      "value": "",
+      "variations": [
+        "question_31264548002"
+      ],
+      "language": "auto",
+      "last_seen": "2025-07-11 21:58:52.086001"
+    },
+    "how would you rate your experience?": {
+      "value": "",
+      "variations": [
+        "how would you rate your experience?"
+      ],
+      "language": "auto",
+      "last_seen": "2025-07-11 23:35:55.487503"
+    },
+    "do you need, or will you need in the future, any immigration-related support or sponsorship from glovo in order to begin the employment at the work location?": {
+      "value": "",
+      "variations": [
+        "do you need, or will you need in the future, any immigration-related support or sponsorship from glovo in order to begin the employment at the work location?"
+      ],
+      "language": "auto",
+      "last_seen": "2025-07-12 02:46:34.880947"
+    },
+    "glovo’s hybrid ways of working mean 3 days in the office, and 2 days wfh, does this match your preferences or requirements?": {
+      "value": "",
+      "variations": [
+        "glovo’s hybrid ways of working mean 3 days in the office, and 2 days wfh, does this match your preferences or requirements?"
+      ],
+      "language": "auto",
+      "last_seen": "2025-07-12 02:46:34.880968"
+    },
+    "how would you describe your proficiency in the english language? please select the option that best reflects your current english proficiency level": {
+      "value": "",
+      "variations": [
+        "how would you describe your proficiency in the english language? please select the option that best reflects your current english proficiency level"
+      ],
+      "language": "auto",
+      "last_seen": "2025-07-12 02:46:34.880970"
+    },
+    "no working experience": {
+      "value": "",
+      "variations": [
+        "no working experience"
+      ],
+      "language": "auto",
+      "last_seen": "2025-07-12 02:46:34.880972"
+    },
+    "when are you available to start?": {
+      "value": "",
+      "variations": [
+        "when are you available to start?"
+      ],
+      "language": "auto",
+      "last_seen": "2025-07-12 02:46:34.880973"
+    }
+  },
+  "file_uploads": {}
+}

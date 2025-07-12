@@ -1,53 +1,115 @@
 Jessie Lee Delgadillo Newman
-Data Consultant
-Data Consultant with over 4 years of experience in Data Science, Data Engineering, and BI Development. Skilled in statistical modelling, data visualisation, and cloud infrastructure to optimise processes and reduce costs. Proficient in Python, SQL, and major cloud platforms. Based in Sydney, open to relocating for the right opportunity.
+Data Scientist | Building ML & AI Solutions
+Data Scientist (4+ yrs) delivering production ML (XGBoost/K8s: +30% lift) & optimising ETLs (€2k+/mo
+saved) in startups. Top bootcamp scholar applying skills to build LLM applications (Kamaji.co MVP) while
+deepening AI expertise (Hugging Face). Experienced across the full data lifecycle; passionate about
+driving value through data and AI.
+jessie
+lee
 
-EMPLOYMENT
-Data Consultant
-Freelance
-08/2023 - Present, Achievements
+AboutAbout
+👋🏽 Hi, I'm Jessie
 
-Developed interactive dashboards using Tableau, enabling stakeholders to visualise key performance metrics and make informed, data-driven decisions.
-Designed and implemented scalable ETL pipelines with Apache Airflow and AWS Glue, ensuring real-time data availability for business intelligence reporting.
-Successfully launched three innovative features that integrated Large Language Models (LLMs) into the school's digital platforms. These enhancements streamlined administrative management tasks, significantly reducing human hours required and improving overall efficiency.
+🌇 Driven Data Scientist passionate about transforming complex data into tangible business value and building practical ML solutions. My journey from a top-percentile bootcamp scholar to data roles in dynamic startups reflects my proactive agency and commitment to continuous learning.
+
+📊 With proven experience architecting and deploying impactful models (like XGBoost on Kubernetes at Reby, driving significant cloud cost savings) and establishing data foundations from scratch (at Bolttech), I thrive on tackling challenges across the data lifecycle. After honing my skills in fast-paced environments, I took a planned 1.5-year sabbatical for global exploration and independent projects, including co-founding Kamaji.co to develop an LLM-powered e-commerce experience.
+
+🚀 My expertise spans Python, SQL, MLOps practices, and major cloud platforms (GCP/AWS). I excel at delivering end-to-end projects, from data exploration and modeling to deploying scalable solutions and communicating insights effectively to diverse stakeholders. Known for meticulous attention to detail and taking ownership to drive results.
+
+💪🏽 Technologies: Python (Pandas, NumPy, Scikit-learn, Flask, FastAPI, PyTorch), SQL, Git, Machine Learning (ML - Supervised/Unsupervised, XGBoost), Deep Learning (TensorFlow), NLP, LLMs, Generative AI, Statistics, A/B Testing, Google Cloud Platform (GCP - Vertex AI, Cloud Run, BigQuery), AWS, Docker, Kubernetes, MLFlow, Data Modeling, BI & Visualization (Sisense, Looker Studio, Matplotlib, Seaborn).
+
+🎶 When not diving into data, you can find me playing piano, training for triathlons, sailing, or practicing BJJ.
+_
+_
+jonathan9879@gmail.com +34 654 808 087 linkedin.com/in/jessie-delgadillo-data-scientist
+
+Experience
+
+Personal goal pursuit
+Career Break
+Sep 2023 - Present · 
+Undertook a 2-year sabbatical focused on personal growth, global exploration (Asia, Oceania, India, Egypt), and applying technical skills to diverse challenges. Key projects included:
+
+• Co-founding Kamaji.co: Led the technical development of an AI product recommender MVP. Built and deployed a scalable solution using Python (FastAPI), Google Cloud Platform (Cloud Run, Vertex AI for LLMs/Vector Search), and Docker, integrating with WordPress to provide personalized e-commerce experiences.
+• Independent AI Development: Created AI-powered scheduling tools for a Barcelona music school.
+• Pro Bono Data Consulting: Designed data process improvements for a Thai refugee camp to enhance operational efficiency.
+• Continuous Learning: Deepened expertise in emerging technologies, focusing on large language models (LLMs) and agent-based systems.
 
 Data Scientist
-Reby
-06/2021 - 08/2023, Achievements
-Trained and deployed containerised statistical models to Kubernetes to be called by app via API requests, such as ride battery prediction, which increased sales of low battery rides by > 30%.
-Built embedded analytics on Flask pages for city council decision-making. Set up MLOps cloud infrastructure to accelerate ML experimentation.
-Reduced cloud infrastructure costs by over $2,000/month through cloud cost optimization initiatives.
-Implemented query logs reporting that drastically reduced cost of ETLs.
-Led cross-functional projects including cloud cost optimisation, vehicle battery modeling, scraping ETLs, and MLOps architecture development.
+Reby · Full-time
+Jun 2021 - Aug 2023 · 2 yrs 3 mos
+Barcelona, Catalonia, Spain
+Developed and implemented data-driven solutions to optimise revenue and reduce costs in the micro-mobility sector.
+
+• Developed and deployed containerised statistical models (including an XGBoost battery prediction model) using Docker and Kubernetes on GCP, increasing low-battery ride rentals by over 30%.
+• Engineered Python-based ETL pipelines that improved data processing efficiency and reduced monthly cloud costs by over €2,000.
+• Implemented embedded analytics dashboards (Flask) empowering city councils with data-driven decision-making.
+• Led cross-functional initiatives in MLOps architecture development, streamlining cloud processes and optimising resource allocation.
+• Implemented query log reporting, significantly reducing ETL costs by an estimated 15%
+• Led cross-functional projects including cloud cost optimisation, vehicle battery modeling, scraping ETLs, and MLOps architecture development.Developed and implemented data-driven solutions to optimise revenue and reduce costs in the micro-mobility sector. • Developed and deployed containerised statistical models (including an XGBoost battery prediction model) using Docker and Kubernetes on GCP, increasing low-battery ride rentals by over 30%. • Engineered Python-based ETL pipelines that improved data processing efficiency and reduced monthly cloud costs by over €2,000. • Implemented embedded analytics dashboards (Flask) empowering city councils with data-driven decision-making. • Led cross-functional initiatives in MLOps architecture development, streamlining cloud processes and optimising resource allocation. • Implemented query log reporting, significantly reducing ETL costs by an estimated 15% • Led cross-functional projects including cloud cost optimisation, vehicle battery modeling, scraping ETLs, and MLOps architecture development.
+
 Data Analyst
-I-surance
-10/2019 - 06/2021, Achievements
-Led project that included configuration and development of AWS serverless rule based system to automate > 25% of manual claim resolutions based on historical data & current C.C. strategies.
-Received company award for automating BI reporting, resulting in $7,000+ savings.
-Collaborated with Finance team to enhance Bordereau reporting, detecting mistakes and adding data points required by reinsurer to continue the program. Received employer award and bonus for this contribution.
-Developed Python ETLs in collaboration with Supply Chain and CC, automating manual data tasks and reducing work by over 4h/week.
-Hired and managed a junior Data Analyst.
+bolttech · Full-time
+Oct 2019 - Jun 2021 · 1 yr 9 mos
+Barcelona Area, Spain
+Formerly I-surance AG, acquired in July 2021.
 
-Education
-Data Analysis Intensive Bootcamp
-Ironhack - Full Scholarship (top 0.05 percent of applicants in Spain)
-02/2019 - 04/2019
+Established the company's inaugural data department, translating business priorities into automated dashboards, KPIs, and data-driven solutions.
 
-Skills
-Python, SQL, Statistics, Pandas, Numpy, Matplotlib, Seaborn, Scikit-learn, XGBoost, AWS, Google Cloud Platform (GCP), Power BI, Sisense, Excel, Git, Docker, Kubernetes, Flask, FastAPI, Agile, Jira
+• Established the company's inaugural data department, automating a manual ETL process within the first month, reducing Supply Chain workload by 8 hours/week.
+• Collaborated with Finance to ensure bordereaux compliance by correcting errors. Developed an ETL process for Supply Chain that identified and corrected stock management reporting errors for phone replacements.
+• Maintained ETL processes using Python and SQL, reducing manual reporting by over 4 hours per week.
+• Initiated and designed an AWS-based serverless rule-based system for automating claim resolutions.
+• Automated BI tool email reporting, saving over €7,000 annually.Formerly I-surance AG, acquired in July 2021. Established the company's inaugural data department, translating business priorities into automated dashboards, KPIs, and data-driven solutions. • Established the company's inaugural data department, automating a manual ETL process within the first month, reducing Supply Chain workload by 8 hours/week. • Collaborated with Finance to ensure bordereaux compliance by correcting errors. Developed an ETL process for Supply Chain that identified and corrected stock management reporting errors for phone replacements. • Maintained ETL processes using Python and SQL, reducing manual reporting by over 4 hours per week. • Initiated and designed an AWS-based serverless rule-based system for automating claim resolutions. • Automated BI tool email reporting, saving over €7,000 annually.
 
-Personal Projects
-Data Engineering for Non-Profit Org. Myanmar refugee assistance.
-Data Mentoring HackUPC University Hackathon
-How to organically distribute scooter availability at eCooltra
-Design and implementation of a mobile game using Finite-State-Machines and Unity3D software. Showcased at the MTRCV forum high school awards
+Junior Consultant (Internship)
+Jul 2015 - Aug 2015 · 2 mos
+Bath, United Kingdom
+• Designed and implemented the Digital Signage project, an application to allow support staff to manage content on the company reception's large screen display.
+• Developed full project documentation (requirements, decisions, technical and user-interface guides).
+• Trained non-technical staff to use the software.
+• Performed Python scripting for internal company tools.
+• Utilised the SVN version control system.
 
-Certificates
-Machine Learning Engineer Nanodegree (Full AWS Scholarship - Awarded to top 200 self-driving RL models)
-Google Cloud Certified - Associate Cloud Engineer
+SKILLS
+Python SQL Git Pandas
+Scikit-learn ML XGBoost
+LightGBM NumPy GCP AWS
+Docker Kubernetes LLM
+Generative AI TensorFlow
+PyTorch NLP Vertex AI
+Cloud Run BigQuery MLFlow
+FastAPI Flask Sisense
+Looker Matplotlib Seaborn
+Statistics A/B Testing
+Data Modeling
+PERSONAL PROJECTS
+Fashion Recommender (Inditex
+Hackathon 2025)
+Developed Transformer-based recommender
+using mixed-precision techniques.
+Data Mentor (HackUPC 2023)
+Mentored student teams on data science
+projects.
+EDUCATION
+Data Analytics Bootcamp (Full Scholarship - Top 0.05%)
+Ironhack
+02/2019 - 04/2019,
+Intensive 9-week program focused on Machine Learning, Data Engineering
+(ETL, Spark), BI, and statistical analysis using Python (Pandas, Scikit-Learn) &
+SQL.
+CERTIFICATES
+Machine Learning Engineer Nanodegree
+AWS Scholarship - Top 200 for Self-Driving RL Models
+Google Cloud Certified - Associate Cloud
+Engineer
+LANGUAGES
+English
+Native Proficiency
+Spanish
+Native Proficiency
+Catalan
+Native Proficiency
+INTERESTS
+Piano Ironman Sailing BJJ
 
-Languages
-English, Spanish, Catalan
-
-Interests
-Piano, Triathlon, Sailing, BJJ

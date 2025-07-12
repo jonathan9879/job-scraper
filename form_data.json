@@ -1,0 +1,29 @@
+{
+  "personal": {
+    "name": "Jessie Lee Delgadillo Newman",
+    "email": "jonathan9879@gmail.com",
+    "phone": "+34 654 808 087",
+    "location": "Barcelona, Spain",
+    "linkedin": "https://linkedin.com/in/jessie-delgadillo-data-scientist",
+    "website": "https://jessielee.dev",
+    "github": "https://github.com/jessieleedelgadillo"
+  },
+  "professional": {
+    "years_experience": "4",
+    "current_title": "Data Scientist",
+    "desired_salary": "45000",
+    "salary_currency": "EUR",
+    "notice_period": "1 month",
+    "education_level": "Master's Degree",
+    "phone": "+34 654 808 087",
+    "languages": [
+      "English (Fluent)",
+      "Spanish (Native)"
+    ]
+  },
+  "questions": {
+    "why_company": "I'm excited about this company's innovative approach to data-driven solutions and the opportunity to make meaningful impact",
+    "why_role": "This role perfectly aligns with my experience in data analytics and my passion for turning data into actionable insights",
+    "biggest_achievement": "Successfully implemented a machine learning model that improved business efficiency by 35%"
+  }
+}
